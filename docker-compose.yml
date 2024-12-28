@@ -1,0 +1,107 @@
+services:
+  device-management:
+    build:
+      context: ./device-management
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DEVICE_MANAGEMENT_ENV=development
+    volumes:
+      - ./device-management/src:/app/src
+      - ./device-management/tests:/app/tests
+    depends_on:
+      - database
+    networks:
+      - forgeworks-network
+
+  blockchain-service:
+    build:
+      context: ./blockchain-service
+      dockerfile: Dockerfile
+    ports:
+      - "6000:6000"
+    environment:
+      - BLOCKCHAIN_ENV=development
+    volumes:
+      - ./blockchain-service/src:/app/src
+      - ./blockchain-service/tests:/app/tests
+    networks:
+      - forgeworks-network
+
+  ai-analytics:
+    build:
+      context: ./ai-analytics
+      dockerfile: Dockerfile
+    ports:
+      - "7000:7000"
+    environment:
+      - AI_ANALYTICS_ENV=development
+    volumes:
+      - ./ai-analytics/src:/app/src
+      - ./ai-analytics/tests:/app/tests
+    depends_on:
+      - database
+    networks:
+      - forgeworks-network
+
+  ui-backend:
+    build:
+      context: ./ui-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - BACKEND_ENV=development
+    volumes:
+      - ./ui-backend/src:/app/src
+      - ./ui-backend/tests:/app/tests
+    depends_on:
+      - database
+    networks:
+      - forgeworks-network
+
+  ui-frontend:
+    build:
+      context: ./ui-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - FRONTEND_ENV=development
+    volumes:
+      - ./ui-frontend/src:/app/src
+      - ./ui-frontend/tests:/app/tests
+    depends_on:
+      - ui-backend
+    networks:
+      - forgeworks-network
+
+  database:
+    image: postgres:latest
+    container_name: forgeworks-database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: forgeworks
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: forgeworks_db
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    networks:
+      - forgeworks-network
+
+  redis:
+    image: redis:latest
+    container_name: forgeworks-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - forgeworks-network
+
+networks:
+  forgeworks-network:
+    driver: bridge
+
+volumes:
+  database_data:
