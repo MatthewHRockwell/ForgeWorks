@@ -146,7 +146,7 @@ ForgeWorks will be developed and deployed in five key phases:
 * AI Analytics: Develop machine learning models for predictive maintenance and process optimization.
 * Establish basic test suites for each service.
 
-### **Phase 3: User Interface Development***
+### **Phase 3: User Interface Development**
 
 **Goal:** Create a seamless user experience for interacting with ForgeWorks.
 * Develop the frontend UI using React.js with a drag-and-drop process design interface.
