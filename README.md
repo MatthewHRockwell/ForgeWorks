@@ -99,19 +99,19 @@ cd forgeworks
 
 ## **Roadmap**
 
-1. **Phase 1: Initial Setup**
+**Phase 1: Initial Setup**
 * Define microservice APIs and create basic workflows.
   
-2. **Phase 2: Feature Implementation**
+**Phase 2: Feature Implementation**
 * Add AI-driven predictive analytics and blockchain integration.
   
-3. **Phase 3: UI Development**
+**Phase 3: UI Development**
 * Implement a drag-and-drop interface for pipeline configuration.
   
-4. **Phase 4: Testing & Optimization**
+**Phase 4: Testing & Optimization**
 * End-to-end testing and performance optimization.
   
-5. **Phase 5: Deployment**
+**Phase 5: Deployment**
 * Roll out ForgeWorks to production.
 
 ---
