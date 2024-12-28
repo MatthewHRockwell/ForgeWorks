@@ -60,9 +60,7 @@ forgeworks/
 * **Python:** [Install Python](https://www.python.org/)
 
 ### **Clone the Repository**
-```
-bash
-
+```bash
 git clone https://github.com/yourusername/forgeworks.git
 cd forgeworks
 ```
@@ -70,15 +68,11 @@ cd forgeworks
 ### **Set Up Services**
 
 * **Build Docker Containers:**
-  ```
-  bash
-  
+  ```bash
   docker-compose up --build
   ```
 * **Run Tests:** Navigate to each service folder and run the tests:
-  ```
-  bash
-  
+  ```bash
   cd device-management
   pytest tests/
   ```
@@ -122,15 +116,11 @@ We welcome contributions! To get started:
 
 1. Fork the repository.
 2. Create a feature branch:
-```
-bash
-
+```bash
 git checkout -b feature-name
 ```
 3. Commit changes and push:
-```
-bash
-
+```bash
 git commit -m "Add feature"
 git push origin feature-name
 ```
